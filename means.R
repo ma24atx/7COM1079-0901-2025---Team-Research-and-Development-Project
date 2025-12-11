@@ -24,7 +24,7 @@ nobel_clean <- nobel %>%
   ) %>%
   select(fullname, category, age_at_award, year, gender, bornCountry)
 
-# Histogram: Age distribution for Physics & Chemistry
+# Histogram: Age distribution for Physics & Chemistry 
 ggplot(nobel_clean, aes(x = age_at_award, fill = category)) +
   geom_histogram(color = "black", bins = 20, alpha = 0.6, position = "identity") +
   labs(
