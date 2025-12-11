@@ -58,31 +58,11 @@ summary_by_category <- nobel_clean %>%
 
 print(summary_by_category)
 
-# Ensure the category is a factor
-nobel_clean$category <- factor(nobel_clean$category)
-
-# Check only Physics and Chemistry
-subset_data <- subset(nobel_clean, category %in% c("Physics", "Chemistry"))
-
-# Quick summary
-summary(subset_data[, c("age_at_award", "category")])
-
-# Updated t-test: Compare ages between Physics and Chemistry laureates
-
-# Keep only Physics and Chemistry categories
-nobel_subset <- nobel_clean[nobel_clean$category %in% c("Physics", "Chemistry"), ]
-
-# Make sure category is a factor
-nobel_subset$category <- factor(nobel_subset$category)
-
-# Run the t-test (Welch t-test recommended)
+# t-test: compare ages between Physics and Chemistry
 t_test_result <- t.test(
   age_at_award ~ category,
-  data = nobel_subset,
-  alternative = "two.sided",
-  var.equal = FALSE
+  data = nobel_clean,
+  alternative = "two.sided"
 )
 
 print(t_test_result)
-
-
