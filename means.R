@@ -34,7 +34,6 @@ ggplot(nobel_clean, aes(x = age_at_award, fill = category)) +
     fill = "Category"
   ) +
   theme_minimal()
-
 # Boxplot: Age comparison between Physics and Chemistry
 ggplot(nobel_clean, aes(x = category, y = age_at_award, fill = category)) +
   geom_boxplot(alpha = 0.7) +
@@ -46,7 +45,7 @@ ggplot(nobel_clean, aes(x = category, y = age_at_award, fill = category)) +
   ) +
   theme_minimal()
 
-# Summary statistics by category
+# Summary statistics by category of subject 
 summary_by_category <- nobel_clean %>%
   group_by(category) %>%
   summarise(
