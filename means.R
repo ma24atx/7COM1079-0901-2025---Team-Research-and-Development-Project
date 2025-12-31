@@ -12,7 +12,7 @@ nobel <- nobel %>%
   mutate(
     born_date = suppressWarnings(parse_date_time(born, orders = "mdy")),
     died_date = suppressWarnings(parse_date_time(died, orders = "mdy"))
-  )
+   ) 
 
 # Clean dataset: keep Physics & Chemistry, valid birth dates, and create age at award
 nobel_clean <- nobel %>%
